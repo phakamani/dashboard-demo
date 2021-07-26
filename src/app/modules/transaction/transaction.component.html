@@ -1,0 +1,15 @@
+<div>
+  <h2 [ngStyle]="{'color': transaction.color}">{{transaction.header}}</h2>
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <div fxFlex="50" class="amount-text">
+      <div class="icon-sar"></div>
+      <!-- <div>{{transaction.amountOne | currency}}</div> -->
+      <div class="amount-text">{{transaction.amountTwo}}</div>
+    </div>
+    <div fxFlex="50" class="amount-text">
+      <div class="icon-dollar"></div>
+      <!-- <div class="amount-text">{{transaction.amountTwo| currency}}</div> -->
+      <div class="amount-text">{{transaction.amountTwo}}</div>
+    </div>
+  </div>
+</div>

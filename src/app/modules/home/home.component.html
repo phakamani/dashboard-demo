@@ -1,0 +1,21 @@
+<h1>
+  Dashboard
+</h1>
+<div class="inputs">
+  <!--TODO insert dropdown-->
+  <!--TODO insert datepicker-->
+  <!--TOTO insert filter-->
+</div>
+<div class="transactions"
+  fxLayout="row"
+  fxLayoutGap="15px"
+  fxLayoutAlign="space-around center">
+  <app-transaction fxFlex="20" *ngFor="let transaction of transactions" [transaction]="transaction"></app-transaction>
+</div>
+<div class="secondary-graphs"
+  fxLayout="row"
+  fxLayoutGap="15px"
+  fxLayoutAlign="space-around center">
+  <app-secondary-graph fxFlex="50" [data]="secondaryTransactionsOne"></app-secondary-graph>
+  <app-secondary-graph fxFlex="50" [data]="secondaryTransactionsTwo"></app-secondary-graph>
+</div>

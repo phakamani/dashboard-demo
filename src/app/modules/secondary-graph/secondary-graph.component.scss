@@ -1,0 +1,23 @@
+h3 {
+  font-size: 8px;
+  text-transform: capitalize;
+  padding-top: 25px;
+}
+.card {
+  box-shadow:0 1px 3px 0 rgba(0,0,0,.2);;
+  border-radius: 5px;
+  display: block;
+  padding: 18px 14px;
+  box-sizing: border-box;
+  .amount {
+    font-size: 24px;
+    .label {
+      font-size: 8px;
+    }
+    .color-block {
+      width:10px;
+      height: 10px;
+      display: block;
+    }
+  }
+}

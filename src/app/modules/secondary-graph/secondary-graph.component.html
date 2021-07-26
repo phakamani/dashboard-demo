@@ -1,0 +1,45 @@
+<h3>{{data[0].header}} vs {{data[1].header}}</h3>
+<div class="card">
+  <div class="card-content"
+    style="width: 300px"
+    fxLayout="row"
+    fxLayoutGap="15px"
+    fxLayoutAlign="space-around center">
+    <div fxFlex="33" class="graph">
+      <ngx-charts-pie-chart
+        [view]="[148, 148]"
+        [scheme]="{ domain: ['#5AA454', '#A10A28', '#C7B42C'] }"
+        [results]="series"
+        [legend]="false"
+        [explodeSlices]="true"
+        [labels]="false"
+        [doughnut]="true"
+        [legendPosition]="''"
+        [legendTitle]="''"
+        [gradient]="true">
+      </ngx-charts-pie-chart>
+    </div>
+
+    <div class="amount">
+      {{data[0].amount}}
+      <div class="label">
+        <div class="color-block"
+          [ngStyle]="{
+            color: data[0].color
+          }" ></div>
+        <div>{{data[0].header}}</div>
+      </div>
+    </div>
+
+    <div class="amount">
+      {{data[1].amount}}
+      <div class="label">
+        <div class="color-block"
+          [ngStyle]="{
+            color: data[1].color
+          }" ></div>
+        <div>{{data[1].header}}</div>
+      </div>
+    </div>
+  </div>
+</div>
