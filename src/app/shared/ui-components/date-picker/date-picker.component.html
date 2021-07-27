@@ -13,6 +13,7 @@
 
     <div>
       <input [attr.type]="'date'"
+        [attr.value]="defaultDate ? defaultDate : ''"
         placeholder="{{data.placeholder}}"
         formControlName="{{data.name}}">
       <div class='form-error-message'
@@ -31,7 +32,9 @@
   </div>
 
   <div>
-    <input type="date"  placeholder="{{data.placeholder}}">
+    <input type="date"
+      value="{{data.defaultDate ? data.defaultDate : ''}}"
+      placeholder="{{data.placeholder}}">
     <div class='form-error-message'
       *ngIf="data.formStatus && data.formStatus['formErrors'] && !parentFormGroup.controls[data.name].valid">
       {{ data.formStatus.formErrors[data.name] }}

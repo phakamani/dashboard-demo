@@ -1,5 +1,6 @@
 import { TransactionModel } from './../../data/types/transaction.model';
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  defaultDate = '';
   transactions: TransactionModel[] = [
     {
       color: "#6c7795",
@@ -71,6 +73,8 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    alert(1);
+    this.defaultDate = moment(new Date).format('YYYY-MM-DD');
   }
 
   changeView(e) {

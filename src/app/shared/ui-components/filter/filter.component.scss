@@ -6,4 +6,10 @@
   div {
     float: left;
   }
+  .icon-filter:before {
+    position: relative;
+    top: 3px;
+    padding-right: 5px;
+    font-weight: bold;
+  }
 }

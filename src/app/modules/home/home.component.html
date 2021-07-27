@@ -1,59 +1,94 @@
-<div fxLayout="row" fxLayoutAlign="space-between center" >
-  <h1>
-    Dashboard
-  </h1>
-  <div class="input"
-    fxFlex="385px"
+<div class="home-container"
+  [ngClass.gt-md]="{'home-container-gt-md' : true}">
+  <div fxLayout="row" fxLayoutAlign="space-between center" >
+    <h1>
+      Dashboard
+    </h1>
+    <div class="input"
+      fxFlex="385px"
+      fxLayout="row"
+      fxLayoutAlign="space-between center" >
+      <form-dropdown
+        fxFlex="100px"
+        (valueChanged)="changeView($event)"
+        [data] = "{
+        name: 'Contribution',
+        options: [
+        {
+          value: 'View',
+          label: 'View'
+        },{
+          value: 'Add contribution',
+          label: 'Add contribution'
+        }, {
+          value: 'Contributions owed',
+          label: 'Who\'s owed'
+        },{
+          value: 'Contributions owing',
+          label: 'Who\s owing'
+        }]}">
+      </form-dropdown>
+
+      <form-date-picker
+        fxFlex="164px"
+        [data]="{
+          placeholder: 'todo: enter date range',
+          defaultDate: defaultDate
+        }"></form-date-picker>
+      <form-filter fxFlex="100px"></form-filter>
+
+    </div>
+  </div>
+
+  <div class="transactions"
+    fxLayout = "row wrap"
+    fxLayoutAlign="space-between center"
+    fxLayoutGap="15"
+    fxLayout.gt-md="row"
+    fxLayoutGap.gt-md="15px"
+    fxLayoutAlign.gt-md="space-between center">
+    <!-- gt-md-->
+    <app-transaction
+      fxHide
+      fxShow.gt-md
+      fxFlex="20"
+      *ngFor="let transaction of transactions, let i = index"
+      [transaction]="transaction"></app-transaction>
+    <!--smaller-->
+    <app-transaction
+      fxShow
+      fxHide.gt-md
+      fxFlex="49"
+      *ngFor="let transaction of transactions.slice(0, 2), let i = index"
+      [transaction]="transaction"></app-transaction>
+    <app-transaction
+      fxShow
+      fxHide.gt-md
+      fxFlex="32"
+      [ngStyle]="{'top': '15px', 'position': 'relative'}"
+      [ngStyle.gt-md]="{'background': 'black'}"
+      *ngFor="let transaction of transactions.slice(2), let i = index"
+      [transaction]="transaction"></app-transaction>
+  </div>
+  <div class="secondary-graphs"
     fxLayout="row"
-    fxLayoutAlign="space-between center" >
-    <form-dropdown
-      fxFlex="100px"
-      (valueChanged)="changeView($event)"
-      [data] = "{
-      name: 'Contribution',
-      options: [
-      {
-        value: 'View',
-        label: 'View'
-      },{
-        value: 'Add contribution',
-        label: 'Add contribution'
-      }, {
-        value: 'Contributions owed',
-        label: 'Who\'s owed'
-      },{
-        value: 'Contributions owing',
-        label: 'Who\s owing'
-      }]}">
-    </form-dropdown>
-
-    <form-date-picker
-      fxFlex="164px"
-      [data]="{
-        placeholder: 'todo: enter date range'
-      }"></form-date-picker>
-    <form-filter fxFlex="100px"></form-filter>
-
+    fxLayoutGap="15px"
+    fxLayoutAlign="space-between stretch">
+    <app-secondary-graph fxFlex="50" [data]="secondaryTransactionsOne"></app-secondary-graph>
+    <app-secondary-graph fxFlex="50" [data]="secondaryTransactionsTwo"></app-secondary-graph>
+  </div>
+  <div class="graph-detail">
+    <div class="top">
+      <h1>Graph detail</h1>
+      <!--TODO: add inputs-->
+    </div>
+    <app-graph-detail fxShow
+      fxHide.gt-md
+      [view]="[768, 300]"></app-graph-detail>
+    <app-graph-detail fxHide
+      fxShow.gt-md
+      [view]="[992, 300]"></app-graph-detail>
   </div>
 </div>
 
-<div class="transactions"
-  fxLayout="row"
-  fxLayoutGap="15px"
-  fxLayoutAlign="space-between center">
-  <app-transaction fxFlex="20" *ngFor="let transaction of transactions" [transaction]="transaction"></app-transaction>
-</div>
-<div class="secondary-graphs"
-  fxLayout="row"
-  fxLayoutGap="15px"
-  fxLayoutAlign="space-between stretch">
-  <app-secondary-graph fxFlex="50" [data]="secondaryTransactionsOne"></app-secondary-graph>
-  <app-secondary-graph fxFlex="50" [data]="secondaryTransactionsTwo"></app-secondary-graph>
-</div>
-<div class="graph-detail">
-  <div class="top">
-    <h1>Graph detail</h1>
-    <!--TODO: add inputs-->
-  </div>
-  <app-graph-detail></app-graph-detail>
-</div>
+

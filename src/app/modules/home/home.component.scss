@@ -1,8 +1,11 @@
-:host {
+.home-container {
   display: block;
-  width: 992px;
+  width: 768px;
   margin: 0 auto;
   .graph-detail {
     padding-top: 40px;
+  }
+  &.home-container-gt-md {
+    width: 992px;
   }
 }

@@ -24,17 +24,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-sar:before {
+.icon-filter:before {
   content: "\e900";
 }
-.icon-dollar:before {
+.icon-sar:before {
   content: "\e901";
 }
-.icon-home:before {
+.icon-dollar:before {
   content: "\e902";
 }
-.icon-logo:before {
+.icon-home:before {
   content: "\e903";
+}
+.icon-logo:before {
+  content: "\e904";
 }
 .icon-pencil:before {
   content: "\e905";

@@ -6,7 +6,8 @@ export class DatePickerModel {
     public formStatus?: any,
     public label?: string,
     public link?: string,
-    public noFieldSetPadding?: boolean
+    public noFieldSetPadding?: boolean,
+    public defaultDate?: string
   ) {}
 }
 

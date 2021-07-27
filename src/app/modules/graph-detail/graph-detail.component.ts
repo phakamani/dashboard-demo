@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-graph-detail',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./graph-detail.component.scss']
 })
 export class GraphDetailComponent implements OnInit {
-  view: any[] = [992, 300];
+  @Input() view: any[];
 
   // options
   legend: boolean = false;
