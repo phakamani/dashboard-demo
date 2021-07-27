@@ -10,28 +10,35 @@ import {GraphModel} from '../../data/types/graph.model'
 export class SecondaryGraphComponent implements OnInit {
 
   @Input() data: TransactionModel[]
+  series = [];
+  seriesInner = [];
 
-  series = [
-    {
-      name: 'Retired',
-      value: 20,
-      label: '20%'
-    },
-    {
-      name: 'Employed',
-      value: 70,
-      label: '70%'
-    },
-    {
-      name: 'Unemployed',
-      value: 10,
-      label: '10%'
-    }
-  ];
+
 
   constructor() { }
 
   ngOnInit(): void {
+    const outerData = {
+      value: this.data[0].amount,
+      label: this.data[0].header,
+      name: this.data[0].header
+    }
+
+    const innerData = {
+      value: this.data[1].amount,
+      label: this.data[1].header,
+      name: this.data[1].header
+    }
+
+    this.series = [
+      outerData,
+      innerData
+    ];
+
+    this.seriesInner = [
+      innerData,
+      outerData,
+    ];
   }
 
 

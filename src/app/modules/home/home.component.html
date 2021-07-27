@@ -1,21 +1,59 @@
-<h1>
-  Dashboard
-</h1>
-<div class="inputs">
-  <!--TODO insert dropdown-->
-  <!--TODO insert datepicker-->
-  <!--TOTO insert filter-->
+<div fxLayout="row" fxLayoutAlign="space-between center" >
+  <h1>
+    Dashboard
+  </h1>
+  <div class="input"
+    fxFlex="385px"
+    fxLayout="row"
+    fxLayoutAlign="space-between center" >
+    <form-dropdown
+      fxFlex="100px"
+      (valueChanged)="changeView($event)"
+      [data] = "{
+      name: 'Contribution',
+      options: [
+      {
+        value: 'View',
+        label: 'View'
+      },{
+        value: 'Add contribution',
+        label: 'Add contribution'
+      }, {
+        value: 'Contributions owed',
+        label: 'Who\'s owed'
+      },{
+        value: 'Contributions owing',
+        label: 'Who\s owing'
+      }]}">
+    </form-dropdown>
+
+    <form-date-picker
+      fxFlex="164px"
+      [data]="{
+        placeholder: 'todo: enter date range'
+      }"></form-date-picker>
+    <form-filter fxFlex="100px"></form-filter>
+
+  </div>
 </div>
+
 <div class="transactions"
   fxLayout="row"
   fxLayoutGap="15px"
-  fxLayoutAlign="space-around center">
+  fxLayoutAlign="space-between center">
   <app-transaction fxFlex="20" *ngFor="let transaction of transactions" [transaction]="transaction"></app-transaction>
 </div>
 <div class="secondary-graphs"
   fxLayout="row"
   fxLayoutGap="15px"
-  fxLayoutAlign="space-around center">
+  fxLayoutAlign="space-between stretch">
   <app-secondary-graph fxFlex="50" [data]="secondaryTransactionsOne"></app-secondary-graph>
   <app-secondary-graph fxFlex="50" [data]="secondaryTransactionsTwo"></app-secondary-graph>
+</div>
+<div class="graph-detail">
+  <div class="top">
+    <h1>Graph detail</h1>
+    <!--TODO: add inputs-->
+  </div>
+  <app-graph-detail></app-graph-detail>
 </div>

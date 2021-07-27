@@ -1,0 +1,145 @@
+table, thead, tbody, tr, td {
+    display: block
+}
+table {
+    tr {
+      border-radius: 5px;
+      height: 95px;
+      overflow: hidden;
+      box-shadow:0 1px 3px 0 rgba(0,0,0,.2);
+      margin: 5px 0;
+      &.total {
+         box-shadow: none 
+      }
+      .name {
+        font-weight: bold;
+        font-size: 20px;
+      }
+      div {
+        overflow: hidden;
+      }
+      td {
+        padding: 20px 20px;
+        .buttons--action {
+            display: none;
+        }
+        height: 100%;
+        float: left;
+        &:nth-child(1) {
+          width: 70%;
+        }
+        &:nth-child(2) {
+          width: 30%;
+        }
+        .top {
+          height: 30px;
+          background-color: transparent;
+        }
+        .middle {
+          font-size: 16px;
+        }
+        .bottom {
+          font-size: 12px;
+        }
+        form-button {
+          float: right;
+          margin-top: 20px;
+        }
+      }
+    }
+}
+
+@media screen and (min-width: 96px) {
+    table {
+        tr {
+            td {
+                .buttons { 
+                    position: relative;
+                    top: -10px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 960px) {
+    table {
+        tr {
+            td {
+                .top {
+                    height: 25px;
+                }
+                .buttons--action {
+                    display: block;
+                    position: relative;
+                    left: 85%;
+                    top: 5px;
+                    font-weight: bold;
+                }
+                .buttons {
+                    position: relative;
+                    background: #ffffff;
+                    color: #1b778e;
+                    -webkit-transform: translate(-50%, 0%);
+                    transform: translate(-50%, 0%);
+                    left: 500%;
+                    overflow: hidden;
+                    z-index: 3;
+                    top: -38px;
+                    display: block;
+                    -webkit-transition: left 1s ease;
+                    transition: left 1s ease;
+                    width: 300px;
+                    padding-bottom: 24px;
+                    padding-top: 5px;
+                    padding-right: 20px;
+                    border-radius: 5px;
+                    box-shadow:0 1px 3px 0 rgba(0,0,0,.2);
+                    &.active {
+                        left: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 758px) { 
+    table {
+        tr {
+            td {
+                .buttons {
+                    &.active {
+                        left: -100%;
+                    }
+                }
+                .top {
+                    height: 20px;
+                }
+            }
+            .name {
+                font-size: 16px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 424px) { 
+    table {
+        tr {
+            td {
+                .name {
+                    font-size: 14px;
+                }
+                .buttons {
+                    &.active {
+                        left: -171%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+  

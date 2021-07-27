@@ -1,0 +1,22 @@
+
+<button *ngIf="data.iconType===''"
+  [ngClass]="{
+  'normal-button' : data.type !== '',
+  'primary': data.subType === 'primary',
+  'secondary': data.subType === 'secondary'}"
+  [attr.type]="data.type"
+  >
+<span *ngIf="data.text">{{data.text}}</span>
+</button>
+<div *ngIf="data.iconType!==''" class='form-button-icon'>
+  <button
+    class="icon icon-{{data.iconType}}">
+  </button>
+  <span class="form-button-icon-text">
+    {{data.text}}
+  </span>
+</div>
+
+
+
+

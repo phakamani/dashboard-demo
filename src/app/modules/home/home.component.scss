@@ -1,5 +1,8 @@
 :host {
-  padding: 50px;
   display: block;
   width: 992px;
+  margin: 0 auto;
+  .graph-detail {
+    padding-top: 40px;
+  }
 }

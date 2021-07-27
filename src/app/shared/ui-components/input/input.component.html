@@ -1,0 +1,47 @@
+<fieldset [formGroup]="parentFormGroup"
+  [ngClass]="{
+    'no-padding': data.noFieldSetPadding,
+    'fieldset-error' : !parentFormGroup.controls[data.name].valid && parentFormGroup.controls[data.name].dirty
+  }"
+  *ngIf="parentFormGroup !== undefined" fxLayout="column">
+    <div *ngIf="data.label !== undefined">
+      <label>
+        {{data.label}}
+        <a *ngIf="data.link !== undefined" (click)="onLinkClick($event)">{{data.link}}</a>
+      </label>
+    </div>
+
+    <div>
+      <input *ngIf="data.type !== 'readonly'"
+        type="{{data.type}}"
+        placeholder="{{data.placeholder}}"
+        formControlName="{{data.name}}">
+      <input *ngIf="data.type === 'readonly'"
+        placeholder="{{data.placeholder}}"
+        formControlName="{{data.name}}" readonly>
+      <div class='form-error-message'
+        *ngIf="data.formStatus && data.formStatus['formErrors'] && !parentFormGroup.controls[data.name].valid">
+        {{ data.formStatus.formErrors[data.name] }}
+      </div>
+    </div>
+</fieldset>
+
+<fieldset *ngIf="parentFormGroup === undefined"
+  fxLayout="column">
+  <div *ngIf="data.label !== undefined">
+    <label>
+      {{data.label}}
+    </label>
+  </div>
+
+  <div>
+    <input *ngIf="data.type !== 'readonly'"
+      type="{{data.type}}"
+      placeholder="{{data.placeholder}}">
+    <input *ngIf="data.type === 'readonly'"
+      placeholder="{{data.placeholder}}" readonly>
+      <div class='form-error-message' *ngIf="data.formStatus && data.formStatus['formErrors'] && !parentFormGroup.controls[data.name].valid">
+          {{ data.formStatus.formErrors[data.name] }}
+      </div>
+  </div>
+</fieldset>

@@ -42,33 +42,39 @@ export class HomeComponent implements OnInit {
 
   secondaryTransactionsOne: TransactionModel[] = [
     {
-      color: "green",
+      color: "#4abb78",
       header: "success",
       amount: 85
     },
     {
-      color: "red",
+      color: "#df5b73",
       header: "rejected",
-      amount: 24
+      amount: 15
     }
   ]
 
   secondaryTransactionsTwo: TransactionModel[] = [
     {
-      color: "blue",
+      color: "#2273b5",
       header: "payment",
       amount: 85
     },
     {
-      color: "orange",
+      color: "#ef954d",
       header: "refund",
-      amount: 24
+      amount: 15
     }
   ]
+
+  filterForm
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeView(e) {
+    console.log('TODO: Handle dropdown');
   }
 
 }

@@ -1,0 +1,41 @@
+@import '../../../../assets/icons/icons';
+@import '../../../../assets/styles/colors';
+.form-button-icon-text {
+  font-size: 12px;
+}
+.form-button-icon {
+  display: block;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+button {
+  border: none;
+  width: 100%;
+  background-color: $white;
+  margin-right: 0px;
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &.icon{
+    color: $delete-button;
+    background-color: transparent;
+  }
+  &.normal-button {
+    font-weight: bold;
+    &.primary {
+      background-color: $button-color;
+      color: $white;
+    }
+    &.secondary {
+      color: $button-color;
+      background-color: $white;
+      border: 2px solid $button-color
+    }
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 100px;
+    height: 40px;
+  }
+}

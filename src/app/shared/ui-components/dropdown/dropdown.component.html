@@ -1,0 +1,60 @@
+<fieldset fxLayout="column" 
+  *ngIf="parentFormGroup"
+  [formGroup]="parentFormGroup"
+  [ngClass]="{
+    'fieldset-error' : !parentFormGroup.controls[data.name].valid && parentFormGroup.controls[data.name].dirty
+  }"
+  >
+  <div>
+    <label for="{{data.name}}"
+      class="col-sm">
+      {{data.label}}
+    </label>
+  </div>
+  <div>
+    <select (change)="onSelectChange($event)" 
+      formControlName="{{data.name}}" 
+      *ngIf="data.options.length > 1"
+      class="col-sm">
+      <option *ngFor="let option of data.options" 
+        value="{{option.value}}">
+        {{option.label}}
+      </option>
+    </select>
+    <input (change)="onSelectChange($event)" 
+      formControlName="{{data.name}}" 
+      readonly 
+      *ngIf="data.options.length <= 1"
+      value = "{{data.options[0].label}}"
+      class="col-sm"/>
+    <div class='form-error-message'
+      *ngIf="data.formStatus && data.formStatus['formErrors'] && !parentFormGroup.controls[data.name].valid">
+      {{ data.formStatus.formErrors[data.name] }}
+    </div>
+
+  </div>
+</fieldset>
+
+<fieldset fxLayout="column" 
+  *ngIf="parentFormGroup === undefined">
+  <div *ngIf="data.label !== undefined">
+    <label for="{{data.name}}"
+      class="col-sm">
+      {{data.label}}
+    </label>
+  </div>
+  <div>
+    <select (change)="onSelectChange($event)" 
+      *ngIf="data.options.length > 1"
+      class="col-sm">
+      <option *ngFor="let option of data.options" 
+        value="{{option.value}}">
+        {{option.label}}
+      </option>
+    </select>
+    <input readonly (change)="onSelectChange($event)" 
+      *ngIf="data.options.length <= 1"
+      value = "{{data.options[0].label}}"
+      class="col-sm"/>
+  </div>
+</fieldset>
