@@ -14,19 +14,24 @@
         [data] = "{
         name: 'Contribution',
         options: [
-        {
-          value: 'View',
-          label: 'View'
-        },{
-          value: 'Add contribution',
-          label: 'Add contribution'
-        }, {
-          value: 'Contributions owed',
-          label: 'Who\'s owed'
-        },{
-          value: 'Contributions owing',
-          label: 'Who\s owing'
-        }]}">
+          {
+            value: 'Total',
+            label: 'Total'
+          },{
+            value: 'Successful',
+            label: 'Successful'
+          }, {
+            value: 'Rejected',
+            label: 'Rejected'
+          },{
+            value: 'Payments',
+            label: 'Payments'
+          },
+          {
+            value: 'Refunds',
+            label: 'Refunds'
+          }
+        ]}">
       </form-dropdown>
 
       <form-date-picker
@@ -78,13 +83,70 @@
     <app-secondary-graph fxFlex="50" [data]="secondaryTransactionsTwo"></app-secondary-graph>
   </div>
   <div class="graph-detail">
-    <div class="top">
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
       <h1>Graph detail</h1>
-      <!--TODO: add inputs-->
+      <div class="input"
+        fxFlex="460px"
+        fxLayout="row"
+        fxLayoutAlign="space-between center" >
+        <form-dropdown
+          fxFlex="116px"
+          (valueChanged)="changeView($event)"
+          [data] = "{
+          name: 'Contribution',
+          options: [
+            {
+              value: 'Graph type',
+              label: 'Graph type'
+            },
+            {
+              value: 'Graph type',
+              label: 'Graph type'
+            }
+          ]}">
+        </form-dropdown>
+
+        <form-dropdown
+          fxFlex="184px"
+          (valueChanged)="changeView($event)"
+          [data] = "{
+          name: 'Contribution',
+          options: [
+            {
+              value: 'Graph period - unit type',
+              label: 'Graph period - unit type'
+            },
+            {
+              value: 'Graph period - unit type',
+              label: 'Graph period - unit type'
+            }
+          ]}">
+        </form-dropdown>
+
+        <form-dropdown
+          fxFlex="136px"
+          (valueChanged)="changeView($event)"
+          [data] = "{
+          name: 'Contribution',
+          options: [
+            {
+              value: 'Graph view style',
+              label: 'Graph view style'
+            },
+            {
+              value: 'Graph view style',
+              label: 'Graph view style'
+            }
+          ]}">
+        </form-dropdown>
+
+      </div>
     </div>
+
     <app-graph-detail fxShow
       fxHide.gt-md
       [view]="[768, 300]"></app-graph-detail>
+
     <app-graph-detail fxHide
       fxShow.gt-md
       [view]="[992, 300]"></app-graph-detail>

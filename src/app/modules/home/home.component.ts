@@ -73,7 +73,6 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    alert(1);
     this.defaultDate = moment(new Date).format('YYYY-MM-DD');
   }
 
