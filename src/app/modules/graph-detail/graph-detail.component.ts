@@ -26,7 +26,7 @@ export class GraphDetailComponent implements OnInit {
 
   multi = [
     {
-      "name": "Germany",
+      "name": "Refund",
       "series": [
         {
           "name": "Jan",
